@@ -14,7 +14,7 @@ public class GameStoreTest {
 
 
     @Test
-/** Проверка добавления игры 1 игры из 3х в каталоге
+/** Проверка добавления игры 1 игры
  *
  * тест проходит
  */ public void shouldAddGame() {
