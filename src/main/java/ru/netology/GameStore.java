@@ -24,6 +24,9 @@ public class GameStore {
         games.add(game);
         return game;
     }
+    public List<Game> getGames() {
+        return games;
+    }
 
     /**
      * Проверяет наличие игры в каталоге и возврашает true
