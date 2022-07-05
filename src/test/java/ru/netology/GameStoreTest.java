@@ -16,7 +16,7 @@ public class GameStoreTest {
     @Test
 /** Проверка добавления игры 1 игры
  *
- * тест проходит
+ * тест не проходит
  */ public void shouldAddGame() {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         assertTrue(store.containsGame(game));
