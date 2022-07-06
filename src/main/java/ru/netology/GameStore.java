@@ -21,6 +21,9 @@ public class GameStore {
      */
     public Game publishGame(String title, String genre) {
         Game game = new Game(title, genre, this);
+        if (containsGame(game)) {
+            return null;
+        }
         games.add(game);
         return game;
     }

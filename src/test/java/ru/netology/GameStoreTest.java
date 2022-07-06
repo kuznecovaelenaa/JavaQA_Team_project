@@ -57,6 +57,8 @@ public class GameStoreTest {
         expected.add(new Game("Нетология Баттл Онлайн", "Аркады", store));
         store.publishGame("Нетология Баттл Онлайн", "Аркады");
         store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         assertEquals(expected, store.getGames());
 
