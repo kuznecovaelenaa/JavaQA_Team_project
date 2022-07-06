@@ -24,6 +24,7 @@ public class GameStore {
         games.add(game);
         return game;
     }
+
     public List<Game> getGames() {
         return games;
     }
@@ -76,6 +77,10 @@ public class GameStore {
      * за играми этого каталога
      */
     public int getSumPlayedTime() {
-        return 0;
+        int result = 0;
+        for (int value : playedTime.values()) {
+            result += value;
+        }
+        return result;
     }
 }
