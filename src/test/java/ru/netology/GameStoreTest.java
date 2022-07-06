@@ -16,9 +16,8 @@ public class GameStoreTest {
     @Test
 /** Проверка добавления игры 1 игры
  *
- * тест не проходит
- */
-public void shouldAddGame() {
+ * тест проходит
+ */ public void shouldAddGame() {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         assertTrue(store.containsGame(game));
     }
@@ -27,8 +26,7 @@ public void shouldAddGame() {
     /** Проверка добавления всех 3х игр
      *
      * тест НЕ проходит. Ошибка в цикле метода containsGame
-     */
-    public void shouldAddGame1() {
+     */ public void shouldAddGame1() {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Game game1 = store.publishGame("Баттл Онлайн", "Аркады");
         Game game2 = store.publishGame("Онлайн", "Аркады");
