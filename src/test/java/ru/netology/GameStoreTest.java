@@ -127,9 +127,9 @@ public class GameStoreTest {
          * тест не проходит. addPlayTime не должен принимать отрицательные значения времени игры)
          */
 
-        store.addPlayTime("Fedor", -1);
+        store.addPlayTime("Fedor", -10);
 
-        assertEquals("null", store.getSumPlayedTime());
+        assertEquals(0, store.getSumPlayedTime());
 
     }
 
