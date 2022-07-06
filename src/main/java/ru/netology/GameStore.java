@@ -47,15 +47,16 @@ public class GameStore {
      * за игрой этого каталога. Игрок задаётся по имени. Время должно
      * суммироваться с прошлым значением для этого игрока
      */
-    public void addPlayTime(String playerName, int hours) {
+    public int addPlayTime(String playerName, int hours) {
         if (hours < 0) {
-            return;
+            return 0;
         }
         if (playedTime.containsKey(playerName)) {
             playedTime.put(playerName, playedTime.get(playerName) + hours);
         } else {
             playedTime.put(playerName, hours);
         }
+        return hours;
     }
 
     /**
