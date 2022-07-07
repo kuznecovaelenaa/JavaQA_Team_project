@@ -39,7 +39,6 @@ public class PlayerTest {
 
 //    @Test /*игра не установлена у игрока, но время посчиталось, а должно выходить RuntimeException*/
 //    public void shouldSumGenreIfOneGame2AndNotInstallGame() {
-////        player1.installGame(game1);
 //        player1.play(game1, 3);
 //
 //        int expected = 3;
@@ -69,15 +68,15 @@ public class PlayerTest {
         assertEquals(expected, actual);
     }
 
-    @Test /*игры не установлена у игрока, но время посчиталось, а должно выходить RuntimeException*/
-    public void shouldSumGenreIfManyGame2AndNotInstallGame() {
-        player1.play(game1, 3);
-        player1.play(game5, 5);
-
-        int expected = 8;
-        int actual = player1.sumGenre(game1.getGenre());
-        assertEquals(expected, actual);
-    }
+//    @Test /*игры не установлена у игрока, но время посчиталось, а должно выходить RuntimeException*/
+//    public void shouldSumGenreIfManyGame2AndNotInstallGame() {
+//        player1.play(game1, 3);
+//        player1.play(game5, 5);
+//
+//        int expected = 0;
+//        int actual = player1.sumGenre(game1.getGenre());
+//        assertEquals(expected, actual);
+//    }
 
     @Test /*не суммируется время, если игрок играет в одну игру несколько раз с регистрацией*/
     public void shouldSumGenreIfOneGameManyTimes() {
@@ -86,6 +85,20 @@ public class PlayerTest {
         player1.play(game1, 2);
 
         int expected = 5;
+        int actual = player1.sumGenre(game1.getGenre());
+        assertEquals(expected, actual);
+    }
+
+    @Test /*не суммируется время, если игрок играет в одну игру несколько раз с регистрацией*/
+    public void shouldSumGenreIfOneGameManyTimes2() {
+        player1.installGame(game1);
+        player1.play(game1, 3);
+        player1.play(game1, 2);
+        player1.play(game1, 0);
+        player1.play(game1, -2);
+        player1.play(game1, 2);
+
+        int expected = 7;
         int actual = player1.sumGenre(game1.getGenre());
         assertEquals(expected, actual);
     }
@@ -149,6 +162,52 @@ public class PlayerTest {
 
         Game expected = game5;
         Game actual = player1.mostPlayerByGenre("Аркады");
+        assertEquals(expected, actual);
+    }
+
+    @Test /*при любых условиях выходит null, а должно выходить название игры*/
+    public void shouldGetGameGenreWithMoreTime2() {
+        player1.installGame(game1);
+        player1.installGame(game2);
+        player1.installGame(game3);
+        player1.installGame(game4);
+        player1.installGame(game5);
+        player1.installGame(game6);
+        player1.installGame(game7);
+        player1.play(game1, 3);
+        player1.play(game2, 3);
+        player1.play(game3, 3);
+        player1.play(game4, 5);
+        player1.play(game5, 3);
+        player1.play(game6, 3);
+        player1.play(game7, 3);
+        player1.play(game1, 3);
+
+        Game expected = game4;
+        Game actual = player1.mostPlayerByGenre("Головоломки");
+        assertEquals(expected, actual);
+    }
+
+    @Test /*при любых условиях выходит null, а должно выходить название игры*/
+    public void shouldGetGameGenreWithMoreTime3() {
+        player1.installGame(game1);
+        player1.installGame(game2);
+        player1.installGame(game3);
+        player1.installGame(game4);
+        player1.installGame(game5);
+        player1.installGame(game6);
+        player1.installGame(game7);
+        player1.play(game1, 3);
+        player1.play(game2, 5);
+        player1.play(game3, 3);
+        player1.play(game4, 5);
+        player1.play(game5, 3);
+        player1.play(game6, 3);
+        player1.play(game2, 3);
+        player1.play(game2, 3);
+
+        Game expected = game2;
+        Game actual = player1.mostPlayerByGenre("Головоломки");
         assertEquals(expected, actual);
     }
 
