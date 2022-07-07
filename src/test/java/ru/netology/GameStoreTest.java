@@ -56,6 +56,8 @@ public class GameStoreTest {
         expected.add(new Game("Нетология Баттл Онлайн", "Аркады", store));
         store.publishGame("Нетология Баттл Онлайн", "Аркады");
         store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         assertEquals(expected, store.getGames());
 
@@ -126,9 +128,9 @@ public class GameStoreTest {
          * тест не проходит. addPlayTime не должен принимать отрицательные значения времени игры)
          */
 
-        store.addPlayTime("Fedor", -1);
+        store.addPlayTime("Fedor", -10);
 
-        assertEquals("null", store.getSumPlayedTime());
+        assertEquals(0, store.getSumPlayedTime());
 
     }
 
