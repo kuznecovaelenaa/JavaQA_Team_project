@@ -129,7 +129,7 @@ public class GameStoreTest {
 
         store.addPlayTime("Fedor", -1);
 
-        assertEquals("null", store.getSumPlayedTime());
+        assertEquals(0, store.getSumPlayedTime());
 
     }
 
